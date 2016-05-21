@@ -1,0 +1,14 @@
+{
+  "name": "bertrama/phpunit-drupal-seven",
+  "version": "0.0.1",
+  "bin": ["bin/drunit"],
+  "require": {
+    "e0ipso/drupal-unit-autoload": "*",
+    "phpunit/phpunit": "^5.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "DrupalSeven\\": ""
+    }
+  }
+}

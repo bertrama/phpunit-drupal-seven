@@ -1,0 +1,17 @@
+#!/bin/bash
+
+# First figure out where we're being run from
+SOURCE="${BASH_SOURCE[0]}"
+COMPOSER_ROOT="$SOURCE"
+
+while [ -s "$COMPOSER_ROOT" -a "$COMPOSER_ROOT" != "/" -a "$COMPOSER_ROOT" != "." ] ; do
+  COMPOSER_ROOT=$(dirname "$COMPOSER_ROOT")
+  if [ -e "$COMPOSER_ROOT/composer.lock" ] ; then
+    break;
+  fi
+done
+
+
+"$COMPOSER_ROOT/vendor/bin/phpunit" \
+  -c "$COMPOSER_ROOT/vendor/bertrama/phpunit-drupal-seven/phpunit.xml" \
+  "$@"
