@@ -1,7 +1,14 @@
 <?php
 namespace DrupalSeven;
 
+/**
+ * A constraint that validates a drupal seven menu definition.
+ */
 class IsValidMenuConstraint extends \PHPUnit_Framework_Constraint {
+
+  /**
+   * {@inheritdoc}
+   */
   public function matches($menu) {
     $valid = is_array($menu);
     if ($valid) {
@@ -30,7 +37,11 @@ class IsValidMenuConstraint extends \PHPUnit_Framework_Constraint {
     return $valid;
   }
 
+  /**
+   * {@inheritdoc}
+   */
   public function toString() {
     return 'is a valid menu';
   }
+
 }
